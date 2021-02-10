@@ -1,33 +1,33 @@
 import styled, { css } from 'styled-components';
 
 const dragActive = css`
-    border-color: #78e5d5;
+    border-color: #38d2d2;
 `;
 
 const dragReject = css`
-    border-color: #e57878;
+    border-color: #e57575;
 `;
 
-export const DropContainer = styled.div.attrs({
-    className: 'dropzone',
-})`
+export const DropContainer = styled.div`
     border: 1px dashed #ddd;
-    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 15px 0;
     cursor: pointer;
-    transition: height 0.2s ease;
-    ${(props) => props.isDragActive && dragActive};
-    ${(props) => props.isDragReject && dragReject};
+    ${(props) => props.isDragActive && dragActive}
+    ${(props) => props.isDragReject && dragReject}
 `;
 
-const messegeColor = {
+const dragmessege = {
     default: '#999',
-    success: '#78e5d5',
-    error: '#e57878',
+    success: '#38d2d2',
+    reject: '#e57575',
 };
 
 export const UploadMessege = styled.p`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: ${(props) => messegeColor[props.type || 'default']};
+    color: ${(props) => dragmessege[props.type || 'default']};
 `;
